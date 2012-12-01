@@ -35,7 +35,7 @@ http.createServer(function (req, res) {
 Installation
 ------------
 
-Make sure you have node.js and npm installed, then run:
+Make sure you have node.js and npm installed, and that the `optipng` binary is in your PATH, then run:
 
     npm install optipng
 
