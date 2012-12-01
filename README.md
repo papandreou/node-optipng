@@ -10,9 +10,9 @@ the `optipng` binary:
 
 ```javascript
 var OptiPng = require('optipng'),
-    myCrusher = new OptiPng(['-o7']);
+    myOptimizer = new OptiPng(['-o7']);
 
-sourceStream.pipe(myCrusher).pipe(destinationStream);
+sourceStream.pipe(myOptimizer).pipe(destinationStream);
 ```
 
 OptiPng as a web service:
