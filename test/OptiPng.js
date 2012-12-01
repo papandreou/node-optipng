@@ -50,4 +50,18 @@ describe('OptiPng', function () {
             optiPng.resume();
         }, 1000);
     });
+
+    it('should emit an error if an invalid image is processed', function (done) {
+        var optiPng = new OptiPng();
+
+        optiPng.on('error', function (err) {
+            done();
+        }).on('data', function (chunk) {
+            done(new Error('OptiPng emitted data when an error was expected'));
+        }).on('end', function (chunk) {
+            done(new Error('OptiPng emitted end when an error was expected'));
+        });
+
+        optiPng.end(new Buffer('qwvopeqwovkqvwiejvq', 'utf-8'));
+    });
 });
