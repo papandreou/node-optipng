@@ -27,6 +27,7 @@
         "image",
         "optimization",
         "stream",
+        "filter",
         "read/write",
         "duplex"
     ],
