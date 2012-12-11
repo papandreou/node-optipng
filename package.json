@@ -1,6 +1,6 @@
 {
     "name": "optipng",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "The optipng utility as a readable/writable stream",
     "main": "lib/OptiPng.js",
     "directories": {
