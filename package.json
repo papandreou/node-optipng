@@ -8,7 +8,9 @@
     },
     "dependencies": {
         "gettemporaryfilepath": "=0.0.1",
-        "optipng-bin": "=0.1.0"
+        "memoizeasync": "=0.0.1",
+        "optipng-bin": "=0.1.0",
+        "which": "=1.0.5"
     },
     "devDependencies": {
         "mocha": "=1.7.3",

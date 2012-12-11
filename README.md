@@ -1,5 +1,5 @@
 node-optipng
-=============
+============
 
 The optipng command line utility as a readable/writable stream. This
 is handy for situations where you don't want to worry about writing
