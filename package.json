@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "mocha": "=1.7.3",
-    "unexpected": "=0.1.11"
+    "unexpected": "=3.2.0"
   },
   "scripts": {
     "prepublish": "mocha",
