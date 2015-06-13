@@ -18,7 +18,9 @@ describe('OptiPng', function () {
                 expect(resultPngBuffer.length, 'to be less than', 152);
                 done();
             })
-            .on('error', done);
+            .on('error', function(err){
+              done(new Error('Error event was emitted when smaller file was expected.'));
+            });
     });
 
     it('should not emit data events while paused', function (done) {
@@ -57,6 +59,7 @@ describe('OptiPng', function () {
         optiPng.on('error', function (err) {
             done();
         }).on('data', function (chunk) {
+            if(chunk !== null)
             done(new Error('OptiPng emitted data when an error was expected'));
         });
 
@@ -68,7 +71,7 @@ describe('OptiPng', function () {
             seenError = false;
 
         optiPng.on('error', function (err) {
-            expect(optiPng.commandLine, 'to match', /optipng -vqve .*?\.png$/);
+            expect(optiPng.commandLine, 'to match', /optipng[\.exe]+ -vqve .*?\.png$/);
             if (seenError) {
                 done(new Error('More than one error event was emitted'));
             } else {
