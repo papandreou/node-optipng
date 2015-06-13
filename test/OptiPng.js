@@ -58,8 +58,6 @@ describe('OptiPng', function () {
             done();
         }).on('data', function (chunk) {
             done(new Error('OptiPng emitted data when an error was expected'));
-        }).on('end', function (chunk) {
-            done(new Error('OptiPng emitted end when an error was expected'));
         });
 
         optiPng.end(new Buffer('qwvopeqwovkqvwiejvq', 'utf-8'));
@@ -78,11 +76,10 @@ describe('OptiPng', function () {
                 setTimeout(done, 100);
             }
         }).on('data', function (chunk) {
+            if (chunk !== null)
             done(new Error('OptiPng emitted data when an error was expected'));
-        }).on('end', function (chunk) {
-            done(new Error('OptiPng emitted end when an error was expected'));
-        });
-
+        })
+        
         optiPng.end(new Buffer('qwvopeqwovkqvwiejvq', 'utf-8'));
     });
 });
