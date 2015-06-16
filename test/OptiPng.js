@@ -1,3 +1,4 @@
+/*global describe, it, setTimeout, __dirname*/
 var expect = require('unexpected'),
     OptiPng = require('../lib/OptiPng'),
     Path = require('path'),
