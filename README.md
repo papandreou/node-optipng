@@ -1,6 +1,11 @@
 node-optipng
 ============
 
+[![NPM version](https://badge.fury.io/js/optipng.svg)](http://badge.fury.io/js/optipng)
+[![Build Status](https://travis-ci.org/papandreou/optipng.svg?branch=master)](https://travis-ci.org/papandreou/optipng)
+[![Coverage Status](https://coveralls.io/repos/papandreou/optipng/badge.svg)](https://coveralls.io/r/papandreou/optipng)
+[![Dependency Status](https://david-dm.org/papandreou/optipng.svg)](https://david-dm.org/papandreou/optipng)
+
 The optipng command line utility as a readable/writable stream. This
 is handy for situations where you don't want to worry about writing
 the input to disc and reading the output afterwards.
