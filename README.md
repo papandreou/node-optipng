@@ -4,7 +4,7 @@ node-optipng
 [![NPM version](https://badge.fury.io/js/optipng.svg)](http://badge.fury.io/js/optipng)
 [![Build Status](https://travis-ci.org/papandreou/node-optipng.svg?branch=master)](https://travis-ci.org/papandreou/node-optipng)
 [![Coverage Status](https://coveralls.io/repos/papandreou/node-optipng/badge.svg)](https://coveralls.io/r/papandreou/node-optipng)
-[![Dependency Status](https://david-dm.org/papandreou/optipng.svg)](https://david-dm.org/papandreou/optipng)
+[![Dependency Status](https://david-dm.org/papandreou/node-optipng.svg)](https://david-dm.org/papandreou/node-optipng)
 
 The optipng command line utility as a readable/writable stream. This
 is handy for situations where you don't want to worry about writing
