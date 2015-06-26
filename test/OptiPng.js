@@ -1,4 +1,4 @@
-/*global describe, it, setTimeout, __dirname*/
+/* global describe, it*/
 var expect = require('unexpected'),
     OptiPng = require('../lib/OptiPng'),
     Path = require('path'),
@@ -19,7 +19,9 @@ describe('OptiPng', function () {
                 expect(resultPngBuffer.length, 'to be less than', 152);
                 done();
             })
-            .on('error', done);
+            .on('error', function(err){
+              done(new Error('Error event was emitted when smaller file was expected.'));
+            });
     });
 
     it('should not emit data events while paused', function (done) {
@@ -58,9 +60,8 @@ describe('OptiPng', function () {
         optiPng.on('error', function (err) {
             done();
         }).on('data', function (chunk) {
+            if(chunk !== null)
             done(new Error('OptiPng emitted data when an error was expected'));
-        }).on('end', function (chunk) {
-            done(new Error('OptiPng emitted end when an error was expected'));
         });
 
         optiPng.end(new Buffer('qwvopeqwovkqvwiejvq', 'utf-8'));
@@ -71,7 +72,7 @@ describe('OptiPng', function () {
             seenError = false;
 
         optiPng.on('error', function (err) {
-            expect(optiPng.commandLine, 'to match', /optipng -vqve .*?\.png$/);
+            expect(optiPng.commandLine, 'to match', /optipng(\.exe)? -vqve .*?\.png$/);
             if (seenError) {
                 done(new Error('More than one error event was emitted'));
             } else {
@@ -79,9 +80,8 @@ describe('OptiPng', function () {
                 setTimeout(done, 100);
             }
         }).on('data', function (chunk) {
+            if (chunk !== null)
             done(new Error('OptiPng emitted data when an error was expected'));
-        }).on('end', function (chunk) {
-            done(new Error('OptiPng emitted end when an error was expected'));
         });
 
         optiPng.end(new Buffer('qwvopeqwovkqvwiejvq', 'utf-8'));
