@@ -12,7 +12,7 @@
     // If the standard browser globals should be predefined.
     "browser": false,
     // If the Node.js environment globals should be predefined.
-    "node": false,
+    "node": true,
     // If the Rhino environment globals should be predefined.
     "rhino": false,
     // If CouchDB globals should be predefined.
