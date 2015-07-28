@@ -7,10 +7,10 @@
     "test": "test"
   },
   "dependencies": {
-    "gettemporaryfilepath": "=0.0.1",
-    "memoizeasync": "=0.0.1",
+    "gettemporaryfilepath": "0.0.1",
+    "memoizeasync": "0.0.1",
     "optipng-bin": "3.0.2",
-    "which": "=1.0.5"
+    "which": "1.0.5"
   },
   "devDependencies": {
     "coveralls": "2.11.2",
