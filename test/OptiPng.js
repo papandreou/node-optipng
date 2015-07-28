@@ -1,27 +1,20 @@
 /* global describe, it*/
-var expect = require('unexpected'),
+var expect = require('unexpected').clone().use(require('unexpected-stream')),
     OptiPng = require('../lib/OptiPng'),
     Path = require('path'),
     fs = require('fs');
 
 describe('OptiPng', function () {
-    it('should produce a smaller file when run with -o7 on a suboptimal PNG', function (done) {
-        var optiPng = new OptiPng(['-o7']),
-            chunks = [];
-        fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png'))
-            .pipe(optiPng)
-            .on('data', function (chunk) {
-                chunks.push(chunk);
-            })
-            .on('end', function () {
-                var resultPngBuffer = Buffer.concat(chunks);
-                expect(resultPngBuffer.length, 'to be greater than', 0);
-                expect(resultPngBuffer.length, 'to be less than', 152);
-                done();
-            })
-            .on('error', function(err){
-              done(new Error('Error event was emitted when smaller file was expected.'));
-            });
+    it('should produce a smaller file when run with -o7 on a suboptimal PNG', function () {
+        return expect(
+            fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png')),
+            'when piped through',
+            new OptiPng(['-o7']),
+            'to yield output satisfying',
+            function (resultPngBuffer) {
+                expect(resultPngBuffer.length, 'to be within', 0, 152);
+            }
+        );
     });
 
     it('should not emit data events while paused', function (done) {
@@ -45,8 +38,7 @@ describe('OptiPng', function () {
                 })
                 .on('end', function () {
                     var resultPngBuffer = Buffer.concat(chunks);
-                    expect(resultPngBuffer.length, 'to be greater than', 0);
-                    expect(resultPngBuffer.length, 'to be less than', 152);
+                    expect(resultPngBuffer.length, 'to be within', 0, 152);
                     done();
                 });
 
