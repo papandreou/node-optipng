@@ -84,7 +84,7 @@ describe('OptiPng', function () {
 
     describe('#destroy', function () {
         describe('when called before the fs.WriteStream is created', function () {
-            it('should', function () {
+            it('should not create the fs.WriteStream or launch the optipng process', function () {
                 var optiPng = new OptiPng(['-o7']);
                 fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png')).pipe(optiPng);
                 optiPng.destroy();
