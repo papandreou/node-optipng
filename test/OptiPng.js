@@ -104,8 +104,6 @@ describe('OptiPng', function () {
                 var optiPng = new OptiPng(['-o7']);
                 fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png')).pipe(optiPng);
 
-                optiPng.write('PNG');
-
                 return expect.promise(function (run) {
                     setTimeout(run(function waitForWriteStream() {
                         var writeStream = optiPng.writeStream;
