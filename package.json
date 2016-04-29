@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "gettemporaryfilepath": "0.0.1",
-    "memoizeasync": "0.0.1",
+    "memoizeasync": "0.9.0",
     "optipng-bin": "3.0.2",
     "which": "1.0.5"
   },
