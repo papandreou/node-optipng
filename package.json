@@ -26,7 +26,7 @@
     "unexpected-stream": "^2.1.0"
   },
   "scripts": {
-    "lint": "jshint .",
+    "lint": "eslint .",
     "test": "mocha && npm run lint",
     "travis": "npm test && npm run coverage && (<coverage/lcov.info coveralls || true)",
     "coverage": "NODE_ENV=development istanbul cover _mocha -- --reporter dot && echo google-chrome coverage/lcov-report/index.html"
