@@ -20,7 +20,7 @@
     "istanbul": "^0.4.5",
     "mocha": "^3.3.0",
     "prettier": "^1.14.3",
-    "sinon": "^2.1.0",
+    "sinon": "^6.3.5",
     "unexpected": "^10.27.0",
     "unexpected-sinon": "^10.7.1",
     "unexpected-stream": "^2.1.0"
