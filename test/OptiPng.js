@@ -208,11 +208,12 @@ describe('OptiPng', () => {
                 if (readStream) {
                   sinon.spy(readStream, 'destroy');
                   expect(optiPng.optiPngProcess, 'to be falsy');
-                  const tempFileName = optiPng.tempFile;
-                  expect(tempFileName, 'to be a string');
                   optiPng.destroy();
                   expect(fs.unlink, 'to have calls satisfying', () => {
-                    fs.unlink(tempFileName, expect.it('to be a function'));
+                    fs.unlink(
+                      expect.it('to be a string'),
+                      expect.it('to be a function')
+                    );
                   });
                 } else {
                   setTimeout(run(waitForReadStream), 0);
