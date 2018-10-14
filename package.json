@@ -14,9 +14,12 @@
   },
   "devDependencies": {
     "coveralls": "^2.13.1",
+    "eslint": "^5.7.0",
+    "eslint-config-pretty-standard": "^2.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
     "istanbul": "^0.4.5",
-    "jshint": "^2.9.4",
     "mocha": "^3.3.0",
+    "prettier": "^1.14.3",
     "sinon": "^2.1.0",
     "unexpected": "^10.27.0",
     "unexpected-sinon": "^10.7.1",
