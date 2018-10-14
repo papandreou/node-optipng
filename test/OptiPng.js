@@ -9,15 +9,16 @@ const Path = require('path');
 const fs = require('fs');
 
 describe('OptiPng', () => {
-  it('should produce a smaller file when run with -o7 on a suboptimal PNG', () => expect(
-    fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png')),
-    'when piped through',
-    new OptiPng(['-o7']),
-    'to yield output satisfying',
-    resultPngBuffer => {
-      expect(resultPngBuffer.length, 'to be within', 0, 152);
-    }
-  ));
+  it('should produce a smaller file when run with -o7 on a suboptimal PNG', () =>
+    expect(
+      fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png')),
+      'when piped through',
+      new OptiPng(['-o7']),
+      'to yield output satisfying',
+      resultPngBuffer => {
+        expect(resultPngBuffer.length, 'to be within', 0, 152);
+      }
+    ));
 
   it('should not emit data events while paused', done => {
     const optiPng = new OptiPng(['-o7']);
