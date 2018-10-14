@@ -64,7 +64,7 @@ describe('OptiPng', () => {
         }
       });
 
-    optiPng.end(new Buffer('qwvopeqwovkqvwiejvq', 'utf-8'));
+    optiPng.end(Buffer.from('qwvopeqwovkqvwiejvq', 'utf-8'));
   });
 
   it('should emit a single error if an invalid command line is specified', done => {
@@ -92,7 +92,7 @@ describe('OptiPng', () => {
         }
       });
 
-    optiPng.end(new Buffer('qwvopeqwovkqvwiejvq', 'utf-8'));
+    optiPng.end(Buffer.from('qwvopeqwovkqvwiejvq', 'utf-8'));
   });
 
   describe('#destroy', () => {
