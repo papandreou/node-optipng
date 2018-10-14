@@ -1,28 +1,26 @@
 /* global describe, it*/
-var expect = require('unexpected')
+const expect = require('unexpected')
   .clone()
   .use(require('unexpected-stream'))
   .use(require('unexpected-sinon'));
-var sinon = require('sinon');
-var OptiPng = require('../lib/OptiPng');
-var Path = require('path');
-var fs = require('fs');
+const sinon = require('sinon');
+const OptiPng = require('../lib/OptiPng');
+const Path = require('path');
+const fs = require('fs');
 
-describe('OptiPng', function() {
-  it('should produce a smaller file when run with -o7 on a suboptimal PNG', function() {
-    return expect(
-      fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png')),
-      'when piped through',
-      new OptiPng(['-o7']),
-      'to yield output satisfying',
-      function(resultPngBuffer) {
-        expect(resultPngBuffer.length, 'to be within', 0, 152);
-      }
-    );
-  });
+describe('OptiPng', () => {
+  it('should produce a smaller file when run with -o7 on a suboptimal PNG', () => expect(
+    fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png')),
+    'when piped through',
+    new OptiPng(['-o7']),
+    'to yield output satisfying',
+    resultPngBuffer => {
+      expect(resultPngBuffer.length, 'to be within', 0, 152);
+    }
+  ));
 
-  it('should not emit data events while paused', function(done) {
-    var optiPng = new OptiPng(['-o7']);
+  it('should not emit data events while paused', done => {
+    const optiPng = new OptiPng(['-o7']);
 
     function fail() {
       done(new Error('OptiPng emitted data while it was paused!'));
@@ -34,16 +32,16 @@ describe('OptiPng', function() {
       optiPng
     );
 
-    setTimeout(function() {
+    setTimeout(() => {
       optiPng.removeListener('data', fail);
-      var chunks = [];
+      const chunks = [];
 
       optiPng
-        .on('data', function(chunk) {
+        .on('data', chunk => {
           chunks.push(chunk);
         })
-        .on('end', function() {
-          var resultPngBuffer = Buffer.concat(chunks);
+        .on('end', () => {
+          const resultPngBuffer = Buffer.concat(chunks);
           expect(resultPngBuffer.length, 'to be within', 0, 152);
           done();
         });
@@ -52,14 +50,14 @@ describe('OptiPng', function() {
     }, 1000);
   });
 
-  it('should emit an error if an invalid image is processed', function(done) {
-    var optiPng = new OptiPng();
+  it('should emit an error if an invalid image is processed', done => {
+    const optiPng = new OptiPng();
 
     optiPng
-      .on('error', function(err) {
+      .on('error', err => {
         done();
       })
-      .on('data', function(chunk) {
+      .on('data', chunk => {
         if (chunk !== null) {
           done(new Error('OptiPng emitted data when an error was expected'));
         }
@@ -68,13 +66,13 @@ describe('OptiPng', function() {
     optiPng.end(new Buffer('qwvopeqwovkqvwiejvq', 'utf-8'));
   });
 
-  it('should emit a single error if an invalid command line is specified', function(done) {
-    var optiPng = new OptiPng(['-vqve']);
+  it('should emit a single error if an invalid command line is specified', done => {
+    const optiPng = new OptiPng(['-vqve']);
 
-    var seenError = false;
+    let seenError = false;
 
     optiPng
-      .on('error', function(err) {
+      .on('error', err => {
         expect(
           optiPng.commandLine,
           'to match',
@@ -87,7 +85,7 @@ describe('OptiPng', function() {
           setTimeout(done, 100);
         }
       })
-      .on('data', function(chunk) {
+      .on('data', chunk => {
         if (chunk !== null) {
           done(new Error('OptiPng emitted data when an error was expected'));
         }
@@ -96,17 +94,17 @@ describe('OptiPng', function() {
     optiPng.end(new Buffer('qwvopeqwovkqvwiejvq', 'utf-8'));
   });
 
-  describe('#destroy', function() {
-    describe('when called before the fs.WriteStream is created', function() {
-      it('should not create the fs.WriteStream or launch the optipng process', function() {
-        var optiPng = new OptiPng(['-o7']);
+  describe('#destroy', () => {
+    describe('when called before the fs.WriteStream is created', () => {
+      it('should not create the fs.WriteStream or launch the optipng process', () => {
+        const optiPng = new OptiPng(['-o7']);
         fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png')).pipe(
           optiPng
         );
         optiPng.destroy();
-        return expect.promise(function(run) {
+        return expect.promise(run => {
           setTimeout(
-            run(function() {
+            run(() => {
               expect(optiPng, 'to satisfy', {
                 writeStream: expect.it('to be falsy'),
                 optiPngProcess: expect.it('to be falsy')
@@ -117,24 +115,24 @@ describe('OptiPng', function() {
         });
       });
     });
-    describe('when called while the fs.WriteStream is active', function() {
-      it('should abort the fs.WriteStream and remove the temporary file', function() {
-        var optiPng = new OptiPng(['-o7']);
+    describe('when called while the fs.WriteStream is active', () => {
+      it('should abort the fs.WriteStream and remove the temporary file', () => {
+        const optiPng = new OptiPng(['-o7']);
         fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png')).pipe(
           optiPng
         );
 
-        return expect.promise(function(run) {
+        return expect.promise(run => {
           setTimeout(
             run(function waitForWriteStream() {
-              var writeStream = optiPng.writeStream;
+              const writeStream = optiPng.writeStream;
               if (optiPng.writeStream) {
                 optiPng.destroy();
                 expect(optiPng.writeStream, 'to be falsy');
                 sinon.spy(writeStream, 'end');
                 sinon.spy(writeStream, 'write');
                 setTimeout(
-                  run(function() {
+                  run(() => {
                     expect(
                       [writeStream.end, writeStream.write],
                       'to have calls satisfying',
@@ -153,28 +151,28 @@ describe('OptiPng', function() {
       });
     });
 
-    describe('when called while the optipng process is running', function() {
-      it('should kill the optipng process and remove the temporary file', function() {
-        var optiPng = new OptiPng(['-o7']);
+    describe('when called while the optipng process is running', () => {
+      it('should kill the optipng process and remove the temporary file', () => {
+        const optiPng = new OptiPng(['-o7']);
         fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png')).pipe(
           optiPng
         );
 
         sinon.spy(fs, 'unlink');
         return expect
-          .promise(function(run) {
+          .promise(run => {
             setTimeout(
               run(function waitForOptiPngProcess() {
-                var optiPngProcess = optiPng.optiPngProcess;
+                const optiPngProcess = optiPng.optiPngProcess;
                 if (optiPng.optiPngProcess) {
                   sinon.spy(optiPngProcess, 'kill');
-                  var tempFileName = optiPng.tempFile;
+                  const tempFileName = optiPng.tempFile;
                   expect(tempFileName, 'to be a string');
                   optiPng.destroy();
                   expect(
                     [optiPngProcess.kill, fs.unlink],
                     'to have calls satisfying',
-                    function() {
+                    () => {
                       optiPngProcess.kill();
                       fs.unlink(tempFileName, expect.it('to be a function'));
                     }
@@ -187,32 +185,32 @@ describe('OptiPng', function() {
               0
             );
           })
-          .finally(function() {
+          .finally(() => {
             fs.unlink.restore();
           });
       });
     });
 
-    describe('when called while streaming from the temporary output file', function() {
-      it('should kill the optipng process and remove the temporary output file', function() {
-        var optiPng = new OptiPng(['-o7']);
+    describe('when called while streaming from the temporary output file', () => {
+      it('should kill the optipng process and remove the temporary output file', () => {
+        const optiPng = new OptiPng(['-o7']);
         fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png')).pipe(
           optiPng
         );
 
         sinon.spy(fs, 'unlink');
         return expect
-          .promise(function(run) {
+          .promise(run => {
             setTimeout(
               run(function waitForReadStream() {
-                var readStream = optiPng.readStream;
+                const readStream = optiPng.readStream;
                 if (readStream) {
                   sinon.spy(readStream, 'destroy');
                   expect(optiPng.optiPngProcess, 'to be falsy');
-                  var tempFileName = optiPng.tempFile;
+                  const tempFileName = optiPng.tempFile;
                   expect(tempFileName, 'to be a string');
                   optiPng.destroy();
-                  expect(fs.unlink, 'to have calls satisfying', function() {
+                  expect(fs.unlink, 'to have calls satisfying', () => {
                     fs.unlink(tempFileName, expect.it('to be a function'));
                   });
                 } else {
@@ -222,7 +220,7 @@ describe('OptiPng', function() {
               0
             );
           })
-          .finally(function() {
+          .finally(() => {
             fs.unlink.restore();
           });
       });
