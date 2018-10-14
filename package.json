@@ -13,7 +13,7 @@
     "which": "^1.2.14"
   },
   "devDependencies": {
-    "coveralls": "^2.13.1",
+    "coveralls": "^3.0.2",
     "eslint": "^5.7.0",
     "eslint-config-pretty-standard": "^2.0.0",
     "eslint-plugin-prettier": "^3.0.0",
