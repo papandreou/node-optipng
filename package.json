@@ -17,8 +17,8 @@
     "eslint": "^5.7.0",
     "eslint-config-pretty-standard": "^2.0.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
     "prettier": "^1.14.3",
     "sinon": "^7.0.0",
     "unexpected": "^10.27.0",
@@ -29,7 +29,7 @@
     "lint": "eslint .",
     "test": "mocha",
     "travis": "npm test && npm run lint && npm run coverage && (<coverage/lcov.info coveralls || true)",
-    "coverage": "NODE_ENV=development istanbul cover _mocha -- --reporter dot && echo google-chrome coverage/lcov-report/index.html"
+    "coverage": "NODE_ENV=development nyc --reporter=lcov --reporter=text --all -- npm test && echo google-chrome coverage/lcov-report/index.html"
   },
   "repository": {
     "type": "git",
@@ -46,5 +46,10 @@
     "duplex"
   ],
   "author": "Andreas Lind <andreaslindpetersen@gmail.com>",
-  "license": "BSD-3-Clause"
+  "license": "BSD-3-Clause",
+  "nyc": {
+    "include": [
+      "lib/**"
+    ]
+  }
 }
