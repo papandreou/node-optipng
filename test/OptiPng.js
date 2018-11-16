@@ -9,17 +9,6 @@ const Path = require('path');
 const fs = require('fs');
 
 describe('OptiPng', () => {
-  it('should end the stream even if it hasnt written to it yet', function(done) {
-    var optiPng = new OptiPng(['-o7']);
-
-    optiPng.on('error', e => {
-      expect(e.message, 'to be', 'Closing stream before writing data.');
-      done();
-    });
-
-    optiPng.end();
-  });
-
   it('should produce a smaller file when run with -o7 on a suboptimal PNG', () =>
     expect(
       fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png')),
@@ -76,6 +65,17 @@ describe('OptiPng', () => {
       });
 
     optiPng.end(Buffer.from('qwvopeqwovkqvwiejvq', 'utf-8'));
+  });
+
+  it('should end the output stream properly even if no data has been piped in', done => {
+    const optiPng = new OptiPng(['-o7']);
+
+    optiPng.on('error', e => {
+      expect(e.message, 'to be', 'Closing stream before writing data.');
+      done();
+    });
+
+    optiPng.end();
   });
 
   it('should emit a single error if an invalid command line is specified', done => {
