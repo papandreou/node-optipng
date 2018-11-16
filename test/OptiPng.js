@@ -9,8 +9,7 @@ const Path = require('path');
 const fs = require('fs');
 
 describe('OptiPng', () => {
-
-  it('should end the stream even if it hasnt written to it yet', function (done) {
+  it('should end the stream even if it hasnt written to it yet', function(done) {
     var optiPng = new OptiPng(['-o7']);
 
     optiPng.on('error', e => {
