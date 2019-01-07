@@ -21,7 +21,7 @@
     "nyc": "^13.1.0",
     "prettier": "^1.14.3",
     "sinon": "^7.0.0",
-    "unexpected": "^10.27.0",
+    "unexpected": "^11.0.0",
     "unexpected-sinon": "^10.7.1",
     "unexpected-stream": "^3.0.0"
   },
