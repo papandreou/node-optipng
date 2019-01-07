@@ -15,9 +15,9 @@ describe('OptiPng', () => {
       'when piped through',
       new OptiPng(['-o7']),
       'to yield output satisfying',
-      resultPngBuffer => {
+      expect.it(resultPngBuffer => {
         expect(resultPngBuffer.length, 'to be within', 0, 152);
-      }
+      })
     ));
 
   it('should not emit data events while paused', done => {
