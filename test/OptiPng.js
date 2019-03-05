@@ -55,7 +55,7 @@ describe('OptiPng', () => {
     const optiPng = new OptiPng();
 
     optiPng
-      .on('error', err => {
+      .on('error', () => {
         done();
       })
       .on('data', chunk => {
@@ -84,7 +84,7 @@ describe('OptiPng', () => {
     let seenError = false;
 
     optiPng
-      .on('error', err => {
+      .on('error', () => {
         expect(
           optiPng.commandLine,
           'to match',
