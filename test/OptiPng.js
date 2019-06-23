@@ -1,4 +1,3 @@
-/* global describe, it */
 const expect = require('unexpected')
   .clone()
   .use(require('unexpected-stream'))
