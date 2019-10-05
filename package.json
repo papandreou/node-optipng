@@ -10,7 +10,7 @@
     "gettemporaryfilepath": "^1.0.0",
     "memoizeasync": "^1.1.0",
     "optipng-bin": "^6.0.0",
-    "which": "^1.2.14"
+    "which": "^2.0.1"
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
