@@ -14,12 +14,12 @@ describe('OptiPng', () => {
       'when piped through',
       new OptiPng(['-o7']),
       'to yield output satisfying',
-      expect.it(resultPngBuffer => {
+      expect.it((resultPngBuffer) => {
         expect(resultPngBuffer.length, 'to be within', 0, 152);
       })
     ));
 
-  it('should not emit data events while paused', done => {
+  it('should not emit data events while paused', (done) => {
     const optiPng = new OptiPng(['-o7']);
 
     function fail() {
@@ -37,7 +37,7 @@ describe('OptiPng', () => {
       const chunks = [];
 
       optiPng
-        .on('data', chunk => {
+        .on('data', (chunk) => {
           chunks.push(chunk);
         })
         .on('end', () => {
@@ -50,14 +50,14 @@ describe('OptiPng', () => {
     }, 1000);
   });
 
-  it('should emit an error if an invalid image is processed', done => {
+  it('should emit an error if an invalid image is processed', (done) => {
     const optiPng = new OptiPng();
 
     optiPng
       .on('error', () => {
         done();
       })
-      .on('data', chunk => {
+      .on('data', (chunk) => {
         if (chunk !== null) {
           done(new Error('OptiPng emitted data when an error was expected'));
         }
@@ -66,10 +66,10 @@ describe('OptiPng', () => {
     optiPng.end(Buffer.from('qwvopeqwovkqvwiejvq', 'utf-8'));
   });
 
-  it('should end the output stream properly even if no data has been piped in', done => {
+  it('should end the output stream properly even if no data has been piped in', (done) => {
     const optiPng = new OptiPng(['-o7']);
 
-    optiPng.on('error', e => {
+    optiPng.on('error', (e) => {
       expect(e.message, 'to be', 'Closing stream before writing data.');
       done();
     });
@@ -77,7 +77,7 @@ describe('OptiPng', () => {
     optiPng.end();
   });
 
-  it('should emit a single error if an invalid command line is specified', done => {
+  it('should emit a single error if an invalid command line is specified', (done) => {
     const optiPng = new OptiPng(['-vqve']);
 
     let seenError = false;
@@ -96,7 +96,7 @@ describe('OptiPng', () => {
           setTimeout(done, 100);
         }
       })
-      .on('data', chunk => {
+      .on('data', (chunk) => {
         if (chunk !== null) {
           done(new Error('OptiPng emitted data when an error was expected'));
         }
@@ -113,12 +113,12 @@ describe('OptiPng', () => {
           optiPng
         );
         optiPng.destroy();
-        return expect.promise(run => {
+        return expect.promise((run) => {
           setTimeout(
             run(() => {
               expect(optiPng, 'to satisfy', {
                 writeStream: expect.it('to be falsy'),
-                optiPngProcess: expect.it('to be falsy')
+                optiPngProcess: expect.it('to be falsy'),
               });
             }),
             10
@@ -133,7 +133,7 @@ describe('OptiPng', () => {
           optiPng
         );
 
-        return expect.promise(run => {
+        return expect.promise((run) => {
           setTimeout(
             run(function waitForWriteStream() {
               const writeStream = optiPng.writeStream;
@@ -171,7 +171,7 @@ describe('OptiPng', () => {
 
         sinon.spy(fs, 'unlink');
         return expect
-          .promise(run => {
+          .promise((run) => {
             setTimeout(
               run(function waitForOptiPngProcess() {
                 const optiPngProcess = optiPng.optiPngProcess;
@@ -211,7 +211,7 @@ describe('OptiPng', () => {
 
         sinon.spy(fs, 'unlink');
         return expect
-          .promise(run => {
+          .promise((run) => {
             setTimeout(
               run(function waitForReadStream() {
                 const readStream = optiPng.readStream;
