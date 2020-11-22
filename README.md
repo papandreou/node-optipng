@@ -49,6 +49,10 @@ Make sure you have node.js and npm installed, then run:
 
     npm install optipng
 
+## Releases
+
+[Changelog](https://github.com/papandreou/unexpectednode-optipng/blob/master/CHANGELOG.md)
+
 ## License
 
 3-clause BSD license -- see the `LICENSE` file for details.
