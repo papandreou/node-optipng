@@ -1,3 +1,21 @@
+### v3.0.0 (2020-11-22)
+
+#### Pull requests
+
+- [#51](https://github.com/papandreou/node-optipng/pull/51) Upgrade unexpected-sinon to version 11.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#52](https://github.com/papandreou/node-optipng/pull/52) Upgrade prettier to version 2.2.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#49](https://github.com/papandreou/node-optipng/pull/49) Upgrade eslint-config-standard to version 16.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#48](https://github.com/papandreou/node-optipng/pull/48) Upgrade eslint-config-standard to version 15.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#47](https://github.com/papandreou/node-optipng/pull/47) Upgrade prettier to version 2.1.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#46](https://github.com/papandreou/node-optipng/pull/46) Upgrade eslint-plugin-mocha to version 8.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+
+#### Commits to master
+
+- [Add CHANGELOG.md + offline-github-changelog integration](https://github.com/papandreou/node-optipng/commit/2cba82f75f021cf359df3d938bb61464842eaea1) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [Drop node.js 8 support, add 14, lint with 14 \(semver-major\)](https://github.com/papandreou/node-optipng/commit/3fb727dcb3aa512be17dbc4ff75deb55f3fc4868) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [Also check \*.json with prettier](https://github.com/papandreou/node-optipng/commit/7210a0c3b66c24d969fe07b1a58fa05ddbedbeb3) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [Update unexpected and unexpected-stream](https://github.com/papandreou/node-optipng/commit/c2d6abdfb5e970e650bc9b3eda6456b81487b467) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
 ### v2.2.0 (2020-07-22)
 
 #### Pull requests
@@ -127,6 +145,7 @@
 - [Minor code style.](https://github.com/papandreou/node-optipng/commit/91b6acc0ba2dc921b9fd50f9ae58836b3eb156c3) ([Andreas Lind Petersen](mailto:andreas@one.com))
 
 ### v0.0.6
+
 - [Avoid calling the callback more than once.](https://github.com/papandreou/node-optipng/commit/7524db207fc951c309f806440499d825e4c6e049) ([Andreas Lind Petersen](mailto:andreas@one.com))
 - [Expose the command line as a public property.](https://github.com/papandreou/node-optipng/commit/3689f3ac2de9f6c018799fe882af087093a69d5e) ([Andreas Lind Petersen](mailto:andreas@one.com))
 - [Update mocha to 1.19.0.](https://github.com/papandreou/node-optipng/commit/1cbe5501aed85cef29aabb384ebcd04778e393cd) ([Andreas Lind Petersen](mailto:andreas@one.com))
@@ -139,6 +158,7 @@
 - [package.json: Indent with 2 spaces.](https://github.com/papandreou/node-optipng/commit/9d623f8395b2849e3951ff7e491d4ac89702580c) ([Andreas Lind Petersen](mailto:andreas@one.com))
 
 ### v0.0.4
+
 - [Release 0.0.4.](https://github.com/papandreou/node-optipng/commit/d91b0418d1cc10ab2a7f6133b7e807b255b6f2fb) ([Andreas Lind Petersen](mailto:andreas@one.com))
 - [Expose getBinaryPath on the constructor.](https://github.com/papandreou/node-optipng/commit/96959d9e7ce2b91b522e36d0c7ea48b8b0d1c59b) ([Andreas Lind Petersen](mailto:andreas@one.com))
 - [More consistent variable names.](https://github.com/papandreou/node-optipng/commit/e301d8fb4454b4d82875bd8c778f86b07c7d4f60) ([Andreas Lind Petersen](mailto:andreas@one.com))
@@ -146,6 +166,7 @@
 - [Prefer an optipng binary in PATH over the ones provided by optipng-bin.](https://github.com/papandreou/node-optipng/commit/eff807a2647ca1e4708bc65f5ef413a6f8866345) ([Andreas Lind Petersen](mailto:andreas@one.com))
 
 ### v0.0.3
+
 - [Release 0.0.3.](https://github.com/papandreou/node-optipng/commit/b1a7120e075337dfa2e958c92a7621edfe6fd9fa) ([Andreas Lind Petersen](mailto:andreas@one.com))
 - [Get prebuilt binaries from optipng-bin. Fixes \#1.](https://github.com/papandreou/node-optipng/commit/1c8b887c55bcc3bc307bd53a276d71eedcbb051a) ([Andreas Lind Petersen](mailto:andreas@one.com))
 - [Test that an error is emitted when an invalid image is processed.](https://github.com/papandreou/node-optipng/commit/a4b8d0bc4e932e843c6248e7808a3fcaa9e666de) ([Andreas Lind Petersen](mailto:andreas@one.com))
@@ -153,10 +174,11 @@
 - [README: myCrusher =&gt; myOptimizer](https://github.com/papandreou/node-optipng/commit/6a90e8351f017fe1e3534734bd06c0d718fe10dd) ([Andreas Lind Petersen](mailto:andreas@one.com))
 
 ### v0.0.2
+
 - [Release 0.0.2.](https://github.com/papandreou/node-optipng/commit/62f79f748a9fec9b0208b5bf145d2189c0b61fcd) ([Andreas Lind Petersen](mailto:andreas@one.com))
 - [Stream the incoming chunks to disc using a fs.WriteStream instead of buffering.](https://github.com/papandreou/node-optipng/commit/dbd3fd0aee8a37ba8c6b001410ee96d8649142fe) ([Andreas Lind Petersen](mailto:andreas@one.com))
 - [README: Made it clear that the optipng binary is required.](https://github.com/papandreou/node-optipng/commit/10ec3f4c2838d4d0e10f1de8af80e2ab9945247f) ([Andreas Lind Petersen](mailto:andreas@one.com))
 
 ### v0.0.1
-- [Initial commit, release 0.0.1.](https://github.com/papandreou/node-optipng/commit/23b515aee9a98d5d473e25d79a5771fff6196b9e) ([Andreas Lind Petersen](mailto:andreas@one.com))
 
+- [Initial commit, release 0.0.1.](https://github.com/papandreou/node-optipng/commit/23b515aee9a98d5d473e25d79a5771fff6196b9e) ([Andreas Lind Petersen](mailto:andreas@one.com))
