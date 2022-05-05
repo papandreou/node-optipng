@@ -1,3 +1,31 @@
+### v3.0.0 (2022-05-05)
+
+#### Pull requests
+
+- [#88](https://github.com/papandreou/node-optipng/pull/88) Upgrade optipng-bin to version 9.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#83](https://github.com/papandreou/node-optipng/pull/83) Upgrade eslint-plugin-mocha to version 10.0.1 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#80](https://github.com/papandreou/node-optipng/pull/80) Upgrade prettier to version 2.5.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#77](https://github.com/papandreou/node-optipng/pull/77) Upgrade sinon to version 12.0.1 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#76](https://github.com/papandreou/node-optipng/pull/76) Upgrade optipng-bin to version 8.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#71](https://github.com/papandreou/node-optipng/pull/71) Upgrade prettier to version 2.4.1 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#74](https://github.com/papandreou/node-optipng/pull/74) Upgrade eslint-plugin-promise to version 5.1.1 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#63](https://github.com/papandreou/node-optipng/pull/63) Upgrade sinon to version 11.1.1 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#64](https://github.com/papandreou/node-optipng/pull/64) Upgrade eslint-plugin-mocha to version 9.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#62](https://github.com/papandreou/node-optipng/pull/62) Upgrade prettier to version 2.3.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#58](https://github.com/papandreou/node-optipng/pull/58) Upgrade sinon to version 10.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#55](https://github.com/papandreou/node-optipng/pull/55) Upgrade mocha to version 8.3.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#54](https://github.com/papandreou/node-optipng/pull/54) Upgrade eslint-config-prettier to version 7.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#53](https://github.com/papandreou/node-optipng/pull/53) Upgrade eslint-plugin-standard to version 5.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+
+#### Commits to master
+
+- [Drop node.js 12 support, add 18](https://github.com/papandreou/node-optipng/commit/8bb7c65b094f45a0112cf9776d4510c83e4b17c8) ([Andreas Lind](mailto:andreas.lind@workday.com))
+- [npm i --save-dev eslint-config-standard@latest eslint-plugin-n eslint-plugin-import@latest](https://github.com/papandreou/node-optipng/commit/30ddd43d69bd011f2d87dcacbda159a0cd186194) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [Update eslint to version 8.6.0](https://github.com/papandreou/node-optipng/commit/f6ece8fb892ba062d99ee5f61795834c4a24d849) ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [npm uninstall eslint-plugin-standard](https://github.com/papandreou/node-optipng/commit/8f1a69f9136199426782e2774983a072fa0361c8) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [Unsupport node.js 10](https://github.com/papandreou/node-optipng/commit/a51ad5a75cd4834845f2ba2033e78368b81f83ab) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [+3 more](https://github.com/papandreou/node-optipng/compare/v3.0.0...v3.0.0)
+
 ### v3.0.0 (2020-11-22)
 
 #### Pull requests
