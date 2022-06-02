@@ -1,4 +1,10 @@
-### v3.0.0 (2022-05-05)
+### v4.1.0 (2022-06-02)
+
+- [Downgrade optipng-bin to ^7.0.1](https://github.com/papandreou/node-optipng/commit/aa9d070c873dcf51171e742d64cc1920559a1345) ([Andreas Lind](mailto:andreas.lind@workday.com))
+- [Add test that exercises optipng-bin](https://github.com/papandreou/node-optipng/commit/7e62150af01495f816a2cafd8596a02812064587) ([Andreas Lind](mailto:andreas.lind@workday.com))
+- [Don't test with node.js 18 for now, build seems pretty broken](https://github.com/papandreou/node-optipng/commit/61a2fea55a216a81d3e49a6b9d00944a6b1fb722) ([Andreas Lind](mailto:andreas.lind@workday.com))
+
+### v4.0.0 (2022-05-05)
 
 #### Pull requests
 
@@ -24,7 +30,7 @@
 - [Update eslint to version 8.6.0](https://github.com/papandreou/node-optipng/commit/f6ece8fb892ba062d99ee5f61795834c4a24d849) ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
 - [npm uninstall eslint-plugin-standard](https://github.com/papandreou/node-optipng/commit/8f1a69f9136199426782e2774983a072fa0361c8) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
 - [Unsupport node.js 10](https://github.com/papandreou/node-optipng/commit/a51ad5a75cd4834845f2ba2033e78368b81f83ab) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
-- [+3 more](https://github.com/papandreou/node-optipng/compare/v3.0.0...v3.0.0)
+- [+3 more](https://github.com/papandreou/node-optipng/compare/v3.0.0...v4.0.0)
 
 ### v3.0.0 (2020-11-22)
 
@@ -142,7 +148,7 @@
 
 #### Pull requests
 
-- [#7](https://github.com/papandreou/node-optipng/pull/7) emit the error before closing the stream ([Sky Higgins](mailto:eveningsky@gmail.com))
+- [#7](https://github.com/papandreou/node-optipng/pull/7) emit the error before closing the stream ([Sky Higgins](mailto:eveningsky@gmail.com), [Sky Higgins](mailto:eveningsky@gmail.com))
 
 #### Commits to master
 
