@@ -3,6 +3,7 @@ const expect = require('unexpected')
   .use(require('unexpected-stream'))
   .use(require('unexpected-sinon'));
 const sinon = require('sinon');
+const proxyquire = require('proxyquire');
 const OptiPng = require('../lib/OptiPng');
 const Path = require('path');
 const fs = require('fs');
@@ -237,5 +238,27 @@ describe('OptiPng', () => {
           });
       });
     });
+  });
+
+  describe('without an optipng binary installed on the system', function () {
+    const which = sinon
+      .stub()
+      .withArgs('optipng')
+      .yields(new Error('not found: optipng'));
+
+    const OptiPngWithoutBin = proxyquire('../lib/OptiPng', {
+      which,
+    });
+
+    it('should produce a smaller file when run with -o7 on a suboptimal PNG', () =>
+      expect(
+        fs.createReadStream(Path.resolve(__dirname, 'suboptimal.png')),
+        'when piped through',
+        new OptiPngWithoutBin(['-o7']),
+        'to yield output satisfying',
+        expect.it((resultPngBuffer) => {
+          expect(resultPngBuffer.length, 'to be within', 0, 152);
+        })
+      ));
   });
 });
