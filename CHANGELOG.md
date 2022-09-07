@@ -1,3 +1,13 @@
+### v4.2.0 (2022-09-07)
+
+#### Pull requests
+
+- [#90](https://github.com/papandreou/node-optipng/pull/90) Make `optipng-bin` an optional package ([Matt Clarkson](mailto:mattyclarkson@gmail.com))
+
+#### Commits to master
+
+- [Fix CHANGELOG generation in preversion script now that an npm env var changed](https://github.com/papandreou/node-optipng/commit/002ad226fa5bb5e36ecb17f52ceced3270619750) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
 ### v4.1.0 (2022-06-02)
 
 - [Downgrade optipng-bin to ^7.0.1](https://github.com/papandreou/node-optipng/commit/aa9d070c873dcf51171e742d64cc1920559a1345) ([Andreas Lind](mailto:andreas.lind@workday.com))
