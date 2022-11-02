@@ -9,7 +9,7 @@
   "dependencies": {
     "gettemporaryfilepath": "^1.0.0",
     "memoizeasync": "^1.1.0",
-    "which": "^2.0.1"
+    "which": "^3.0.0"
   },
   "optionalDependencies": {
     "optipng-bin": "^7.0.1"
